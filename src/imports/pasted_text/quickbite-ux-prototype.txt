@@ -1,0 +1,198 @@
+Design a complete mobile and web responsive UI/UX prototype in Figma for a food delivery application called QuickBite, targeting users in Kigali, Rwanda.
+
+App overview
+
+App name: QuickBite
+Type: Food delivery (customer-facing)
+Platforms: Mobile (375×812px) and Web/Desktop (1440×900px)
+Target users: University students and working professionals in Kigali
+Key features: Restaurant browsing, food ordering, MoMo/card/cash payment, real-time order tracking, favourites, user profile
+
+
+Design system
+Primary color: Orange — #F97316 (buttons, CTAs, active states)
+Secondary color: White — #FFFFFF (backgrounds, cards)
+Accent color: Dark charcoal — #1C1C1E (headings, primary text)
+Muted text: #6B7280
+Background: #F9FAFB (page background), #FFFFFF (cards)
+Success: #22C55E (order confirmed, delivered)
+Border: #E5E7EB (subtle dividers)
+Typography:
+
+Font: Inter (available in Figma for free)
+Headings: Inter Bold, 24px / 20px / 18px
+Body: Inter Regular, 14px / 13px
+Labels/captions: Inter Medium, 12px
+
+Border radius: 12px for cards, 8px for inputs and chips, 24px for primary buttons
+Spacing system: 4px base unit (8, 12, 16, 24, 32px)
+Icon library: Use Feather Icons or Material Icons (available as Figma plugins)
+
+Screens to design
+Design all 6 screens in both mobile and desktop layout.
+
+Screen 1 — Login / Register
+Mobile layout:
+
+QuickBite logo and tagline at top center ("Order food. Fast. Easy.")
+Email input field
+Password input field with show/hide toggle
+"Log in" primary button (orange, full width, rounded)
+"or" divider
+"Continue with Google" secondary button (outlined)
+"Don't have an account? Sign up" link at bottom
+
+Desktop layout:
+
+Split screen: left side shows a large food hero image; right side contains the login form centered vertically
+Same fields as mobile
+
+
+Screen 2 — Home screen
+Mobile layout:
+
+Top bar: location selector ("Delivering to: Kicukiro, Kigali") with dropdown, notification bell icon, avatar
+Search bar with placeholder "Search restaurants or dishes..."
+Horizontal scrollable category chips: Burgers, Pizza, Chicken, Salads, Sushi, Drinks
+Section: "Featured" — horizontal scroll of restaurant cards (image, name, rating, delivery time, delivery fee)
+Section: "Nearby restaurants" — vertical list of restaurant cards
+Bottom navigation bar: Home (active), Search, Cart (with badge), Profile
+
+Desktop layout:
+
+Sticky top navbar: logo left, search bar center, location selector, cart icon, avatar right
+Left sidebar: category filter list
+Main content: grid of restaurant cards (3 columns)
+Featured banner at top of main content
+
+
+Screen 3 — Restaurant page
+Mobile layout:
+
+Full-width restaurant cover image (top)
+Back arrow overlay on image
+Restaurant info below image: name, cuisine type, rating (stars), delivery time, delivery fee, favourite (heart) icon
+Sticky category tabs for menu sections (e.g. Burgers, Sides, Drinks)
+Menu item list: each item shows name, short description, price in RWF, thumbnail image, and "+" add button
+Sticky bottom bar: "View cart — X items · X,XXX RWF" orange button
+
+Desktop layout:
+
+Restaurant hero image full width at top
+Two-column layout below: left = menu with category tabs; right = sticky cart summary panel
+Cart panel shows items, quantities, subtotal, and "Go to checkout" button
+
+
+Screen 4 — Cart and Checkout
+Mobile layout:
+
+Header: "Your cart" with back arrow
+Restaurant name subtitle
+List of cart items: name, quantity controls (– / +), price
+Delivery address section: current address with edit icon
+Order summary: subtotal, delivery fee, total in RWF
+Payment method selector: MoMo (selected/highlighted), Card, Cash — shown as pill toggles
+"Place order" primary orange button at bottom
+
+Desktop layout:
+
+Two-column layout: left = cart items and address; right = order summary and payment
+Same fields, wider spacing
+
+
+Screen 5 — Order tracking
+Mobile layout:
+
+Header: "Order tracking" with order number subtitle
+Map placeholder (grey rectangle representing live map)
+Estimated arrival time pill: "Arriving in 25 min"
+Progress stepper (vertical):
+
+Order confirmed (completed — filled dot, grey text)
+Preparing your food (completed — filled dot, grey text)
+Rider on the way (active — filled dark dot, bold black text)
+Delivered (pending — empty dot, muted text)
+
+
+Rider info card: avatar, name, "Your rider" label, phone and message icons
+Bottom navigation bar
+
+Desktop layout:
+
+Large map takes up left 60% of screen
+Right panel: order status stepper, rider info card, estimated time
+
+
+Screen 6 — Profile
+Mobile layout:
+
+Avatar circle (initials placeholder), name, email
+Stats row: Orders (12), Rating (4.9), Saved (3)
+Menu list with icons and right chevrons:
+
+Order history (clock icon)
+Favourites (heart icon)
+Saved addresses (map pin icon)
+Payment methods (credit card icon)
+Settings (gear icon)
+Log out (red text, logout icon)
+
+
+Bottom navigation bar (Profile tab active)
+
+Desktop layout:
+
+Left sidebar: avatar, name, stats, nav menu
+Right content panel: shows selected section (default: Order history as a table)
+
+
+Prototype connections (Figma prototype tab)
+Connect the following interactions:
+FromTriggerToLogin screen → "Log in" buttonOn tapHome screenLogin screen → "Sign up" linkOn tapRegister screenHome → restaurant cardOn tapRestaurant pageRestaurant page → "View cart" buttonOn tapCart & CheckoutCart → "Place order" buttonOn tapOrder trackingBottom nav → each iconOn tapCorresponding screenProfile → "Log out"On tapLogin screen
+Set transition: Smart animate, duration 300ms, easing Ease out
+
+Accessibility requirements
+
+Minimum font size: 13px
+All buttons minimum 44×44px tap target
+Color contrast: text on orange background must use white (#FFFFFF); text on white must use #1C1C1E or #6B7280
+All form inputs have visible labels above them (not just placeholders)
+Navigation icons include text labels below
+
+
+Figma file structure (pages)
+Organise your Figma file into these pages:
+
+Cover — project title, names, course
+Design system — color swatches, typography scale, button states, input states, icon set
+User flow — flow diagram connecting all screens
+Wireframes — low-fidelity versions of all 6 screens (mobile)
+Mobile UI — high-fidelity mobile screens (all 6)
+Desktop UI — high-fidelity desktop screens (all 6)
+Prototype — interactive prototype (mobile)
+
+
+GitHub repository structure
+quickbite-ui/
+├── README.md
+├── docs/
+│   ├── problem-statement.md
+│   ├── user-persona.md
+│   ├── user-flow.md
+│   ├── design-decisions.md
+│   └── accessibility.md
+├── wireframes/
+│   ├── screen-1-login.png
+│   ├── screen-2-home.png
+│   ├── screen-3-restaurant.png
+│   ├── screen-4-cart.png
+│   ├── screen-5-tracking.png
+│   └── screen-6-profile.png
+├── high-fidelity-designs/
+│   ├── mobile/
+│   └── desktop/
+├── assets/
+│   ├── logo.png
+│   └── icons/
+└── prototype/
+    └── prototype-link.md

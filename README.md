@@ -78,21 +78,6 @@ Then open your browser at `http://localhost:5173`
 
 ---
 
-## Tech Stack
-
-| Technology | Purpose |
-|---|---|
-| React 18 + TypeScript | Frontend framework |
-| Vite | Build tool |
-| Tailwind CSS v4 | Styling |
-| shadcn/ui + Radix UI | UI component library |
-| React Router v7 | Page navigation |
-| Recharts | Data visualization |
-| Motion (Framer Motion) | Animations |
-| Lucide React | Icons |
-
----
-
 ## Documentation
 
 For the full project report including problem statement, user persona, user flow, design decisions, and accessibility considerations, see [DOCUMENTATION.md](./DOCUMENTATION.md).

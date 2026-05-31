@@ -12,7 +12,7 @@
 |---|---|
 | NDAHIRIWE Aime Maurice | 22977/2023 |
 | DUSHIMIYEMUNGU Damour | 22821/2023 |
-| ISHIMWE Olivier | 22558/2023 |
+
 
 ---
 

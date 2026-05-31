@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { Bell, ChevronDown, MapPin, Search, ShoppingCart, Star } from "lucide-react";
 import { BottomNav } from "./BottomNav";
 
@@ -67,6 +67,8 @@ const nearbyRestaurants = [
 
 export function Home() {
   const [selectedCategory, setSelectedCategory] = useState("Burgers");
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-background pb-20 md:pb-0">
@@ -94,14 +96,25 @@ export function Home() {
           </div>
         </div>
 
-        <div className="relative">
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            if (searchQuery.trim()) {
+              navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
+            }
+          }}
+          className="relative"
+        >
           <Search size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
           <input
             type="text"
             placeholder="Search restaurants or dishes..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onFocus={() => navigate("/search")}
             className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-border bg-muted focus:outline-none focus:ring-2 focus:ring-primary"
           />
-        </div>
+        </form>
       </header>
 
       {/* Desktop Header */}
@@ -115,14 +128,25 @@ export function Home() {
               <span className="font-bold text-xl">QuickBite</span>
             </div>
 
-            <div className="flex-1 max-w-xl mx-8 relative">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (searchQuery.trim()) {
+                  navigate(`/search?q=${encodeURIComponent(searchQuery)}`);
+                }
+              }}
+              className="flex-1 max-w-xl mx-8 relative"
+            >
               <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" />
               <input
                 type="text"
                 placeholder="Search restaurants or dishes..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={() => navigate("/search")}
                 className="w-full pl-12 pr-4 py-3 rounded-lg border border-border bg-muted focus:outline-none focus:ring-2 focus:ring-primary"
               />
-            </div>
+            </form>
 
             <div className="flex items-center gap-6">
               <button className="flex items-center gap-2">

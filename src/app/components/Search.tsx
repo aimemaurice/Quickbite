@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router";
+import { useState, useEffect } from "react";
+import { Link, useSearchParams } from "react-router";
 import { ArrowLeft, Search as SearchIcon, Star, X } from "lucide-react";
 import { BottomNav } from "./BottomNav";
 
@@ -63,8 +63,17 @@ const allRestaurants = [
 const popularSearches = ["Burger", "Pizza", "Sushi", "Chicken", "Salad", "Pasta"];
 
 export function Search() {
-  const [query, setQuery] = useState("");
-  const [isSearching, setIsSearching] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [query, setQuery] = useState(searchParams.get("q") || "");
+  const [isSearching, setIsSearching] = useState(!!searchParams.get("q"));
+
+  useEffect(() => {
+    const q = searchParams.get("q");
+    if (q) {
+      setQuery(q);
+      setIsSearching(true);
+    }
+  }, [searchParams]);
 
   const filteredRestaurants = query
     ? allRestaurants.filter(
@@ -96,8 +105,14 @@ export function Search() {
               placeholder="Search restaurants or dishes..."
               value={query}
               onChange={(e) => {
-                setQuery(e.target.value);
-                setIsSearching(e.target.value.length > 0);
+                const newQuery = e.target.value;
+                setQuery(newQuery);
+                setIsSearching(newQuery.length > 0);
+                if (newQuery) {
+                  setSearchParams({ q: newQuery });
+                } else {
+                  setSearchParams({});
+                }
               }}
               className="w-full pl-10 pr-10 py-3 rounded-lg border border-border bg-input-background focus:outline-none focus:ring-2 focus:ring-primary"
               autoFocus
@@ -107,6 +122,7 @@ export function Search() {
                 onClick={() => {
                   setQuery("");
                   setIsSearching(false);
+                  setSearchParams({});
                 }}
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground"
               >
@@ -128,6 +144,7 @@ export function Search() {
                   onClick={() => {
                     setQuery(term);
                     setIsSearching(true);
+                    setSearchParams({ q: term });
                   }}
                   className="px-4 py-2 bg-white rounded-full border border-border hover:border-primary hover:text-primary transition-colors"
                 >

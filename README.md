@@ -22,7 +22,7 @@
 |---|---|
 | NDAHIRIWE Aime Maurice | 22977/2023 |
 | DUSHIMIYEMUNGU Damour | 22821/2023 |
-| ISHIMWE Olivier | 22558/2023 |
+
 
 ---
 
@@ -59,7 +59,7 @@ Quickbite/
 ├── default_shadcn_theme.css    # shadcn/ui theme
 ├── README.md                   # Project overview (this file)
 ├── DOCUMENTATION.md            # Full project documentation
-└── ATTRIBUTIONS.md             # Third-party attributions
+
 ```
 
 ---
